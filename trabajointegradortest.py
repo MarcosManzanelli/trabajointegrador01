@@ -67,10 +67,10 @@ while jugar_nuevamente.lower() == "s":
                     octal = resto * (10**i) + octal
                     numeroDecAOct = numeroDecAOct // 8
                     i+=1
-                print(f"El número en decimal {numeroUsuario} en binario es {octal}.")
+                print(f"El número en decimal {numeroUsuario} en octal es {octal}.")
             else: # Como tenemos el while que nos valida la opción no hace falta poner un elif con modo == 3 - Conversión de decimal a hexagedecimal.
                 hexa = hex(numeroUsuario)
-                print(f"El número en decimal {numeroUsuario} en binario es {hexa[2:]}.")
+                print(f"El número en decimal {numeroUsuario} en hexagedecimal es {hexa[2:]}.")
 
         elif modo == "2": # Usuario elige ingresar un número del sistema binario, ingresa a condicional para elegir a qué sistema convertir su número
             numeroUsuario = input("Ingrese el número a convertir: ")
