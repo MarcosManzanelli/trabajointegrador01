@@ -23,40 +23,38 @@ while jugar_nuevamente.lower() == "s":
         print("1. Sistema decimal.")
         print("2. Sistema binario.")
         print("3. Sistema octal.")
-        print("4. Sistema hexagedecimal.")
 
         modo_valido = False
         while modo_valido == False:
-            modo = input("Seleccioná una opción (1 - 2 - 3 - 4): ")
-            if modo == "1" or modo == "2" or modo == "3" or modo == "4":
+            modo = input("Seleccioná una opción (1 - 2 - 3: ")
+            if modo == "1" or modo == "2" or modo == "3":
                 modo_valido = True
             else:
-                print("❌ Opción no válida. Elegí 1 o 2 o 3 o 4.")
+                print("❌ Opción no válida. Elegí 1 o 2 o 3.")
 
         if modo == "1": # Usuario elige ingresar un número del sistema decimal, ingresa a condicional para elegir a qué sistema convertir su número
             numeroUsuario = int(input("Ingrese el número a convertir: "))
             print("\n¿A qué sistema lo quiere convertir?")
             print("1. Sistema binario.")
             print("2. Sistema octal.")
-            print("3. Sistema hexagedecimal.")
 
             modo_valido = False
             while modo_valido == False:
-                modo = input("Seleccioná una opción (1 - 2 - 3): ")
-                if modo == "1" or modo == "2" or modo == "3":
+                modo = input("Seleccioná una opción (1 - 2): ")
+                if modo == "1" or modo == "2":
                     modo_valido = True
                 else:
-                    print("❌ Opción no válida. Elegí 1 o 2 o 3.")
+                    print("❌ Opción no válida. Elegí 1 o 2.")
 
             if modo == "1": # Conversión de número decimal a binario
                 numeroDecABin = numeroUsuario # Creamos una nueva variable con el mismo valor que el número que ingresó el usuario
-                binario = 0
-                i = 0
-                while numeroDecABin > 0: 
-                    resto = numeroDecABin % 2
-                    numeroDecABin = numeroDecABin // 2
-                    binario += resto * (10**i)
-                    i+=1
+                binario = 0 # Se inicializa variable binario en 0
+                i = 0 # Se inicializa variable i en 0
+                while numeroDecABin > 0: # Ciclo para convertir el número decimal a binario
+                    resto = numeroDecABin % 2 # Dividimos el número decimal en 2 con % para obtener resto y lo guardamos en la variable resto
+                    numeroDecABin = numeroDecABin // 2 # Divimos por 2 el número del usuario con // para obtener la parte entera y la guardamos en la misma variable que ingresó el usuario
+                    binario += resto * (10**i) # Con cada repetición del ciclo acá hacemos el número binario. Multiplicamos el resto por (10 elevado al valor de i) y esto lo sumamos a binario
+                    i+=1 # Sumamos 1 a i
                 print(f"El número decimal {numeroUsuario} en binario es {binario}.")
             elif modo == "2": # Conversión de número decimal a octal
                 octal = 0
@@ -68,24 +66,20 @@ while jugar_nuevamente.lower() == "s":
                     numeroDecAOct = numeroDecAOct // 8
                     i+=1
                 print(f"El número en decimal {numeroUsuario} en octal es {octal}.")
-            else: # Como tenemos el while que nos valida la opción no hace falta poner un elif con modo == 3 - Conversión de decimal a hexagedecimal.
-                hexa = hex(numeroUsuario)
-                print(f"El número en decimal {numeroUsuario} en hexagedecimal es {hexa[2:]}.")
 
         elif modo == "2": # Usuario elige ingresar un número del sistema binario, ingresa a condicional para elegir a qué sistema convertir su número
             numeroUsuario = input("Ingrese el número a convertir: ")
             print("\n¿A qué sistema lo quiere convertir?")
             print("1. Sistema decimal.")
             print("2. Sistema octal.")
-            print("3. Sistema hexagedecimal.")
 
             modo_valido = False
             while modo_valido == False:
-                modo = input("Seleccioná una opción (1 - 2 - 3): ")
-                if modo == "1" or modo == "2" or modo == "3":
+                modo = input("Seleccioná una opción (1 - 2): ")
+                if modo == "1" or modo == "2":
                     modo_valido = True
                 else:
-                    print("❌ Opción no válida. Elegí 1 o 2 o 3.")
+                    print("❌ Opción no válida. Elegí 1 o 2.")
 
             if modo == "1": # Conversión de número binario a decimal
                 numeroBinADec = int(numeroUsuario)
@@ -117,33 +111,20 @@ while jugar_nuevamente.lower() == "s":
                     numeroDecAOct = numeroDecAOct // 8
                     i+=1
                 print(f"El número binario {numeroUsuario} en octal es {octal}.")
-            else: # Conversión de binario a hexagedecimal
-                numeroBinAHex = int(numeroUsuario)
-                cantidadDeBin = int(len(numeroUsuario))
-                decimal = 0
-                i = 0
-                while cantidadDeBin > i:
-                    digito = numeroBinAHex % 10
-                    decimal = decimal + digito*(2**i)
-                    i +=1
-                    numeroBinAHex = numeroBinAHex // 10
-                hexa = hex(decimal)
-                print(f"El número binario {numeroUsuario} en hexagedecimal es {hexa[2:]}.")
 
         elif modo == "3": # Usuario elige ingresar un número del sistema octal, ingresa a condicional para elegir a qué sistema convertir su número
             numeroUsuario = input("Ingrese el número a convertir: ")
             print("\n¿A qué sistema lo quiere convertir?")
             print("1. Sistema decimal.")
             print("2. Sistema binario.")
-            print("3. Sistema hexagedecimal.")
 
             modo_valido = False
             while modo_valido == False:
-                modo = input("Seleccioná una opción (1 - 2 - 3): ")
-                if modo == "1" or modo == "2" or modo == "3":
+                modo = input("Seleccioná una opción (1 - 2): ")
+                if modo == "1" or modo == "2":
                     modo_valido = True
                 else:
-                    print("❌ Opción no válida. Elegí 1 o 2 o 3.")
+                    print("❌ Opción no válida. Elegí 1 o 2.")
 
             if modo == "1": # Conversión de octal a decimal
                 numeroOctADec = int(numeroUsuario)
@@ -175,22 +156,7 @@ while jugar_nuevamente.lower() == "s":
                     binario += resto * (10**i)
                     i+=1
                 print(f"El número octal {numeroUsuario} en binario es {binario}.")
-            else: # Conversión de número octal a hexagedecimal
-                numeroOctADec = int(numeroUsuario)
-                cantidadDeBin = int(len(numeroUsuario))
-                decimal = 0
-                i = 0
-                while cantidadDeBin > i:
-                    digito = numeroOctADec % 10
-                    decimal = decimal + digito*(8**i)
-                    i +=1
-                    numeroOctADec = numeroOctADec // 10
-                hexa = hex(decimal)
-                print(f"El número octal {numeroUsuario} en hexagedecimal es {hexa[2:]}.")
 
-        else: # Usuario elige ingresar un número del sistema hexagedecimal, ingresa a condicional para elegir a qué sistema convertir su número
-            pass
-        
     elif modo == "2":
         print("\nADIVINÁ EL BINARIO A PARTIR DE UN DECIMAL")
         print("Elegí un nivel de dificultad:")
